@@ -13,7 +13,7 @@ class ProductProduct(models.Model):
         self.is_dangerous_good = self.is_dangerous
 
     @api.onchange('is_dangerous_waste', 'un_ref', 'nag', 'label_first', 'label_second', 'label_third',
-                  'packaging_group', 'tunnel_code', 'envir_hazardous')
+                  'packaging_group', 'tunnel_code', 'envir_hazardous', 'special_disposition_id')
     def onchange_get_full_class_name(self):
         fcn = self.get_full_class_name()
         self.full_class_name = fcn
