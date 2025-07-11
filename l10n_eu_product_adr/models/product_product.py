@@ -36,7 +36,7 @@ class ProductProduct(models.Model):
     currency_id = fields.Many2one(
         "res.currency",
         string="Currency",
-        default=lambda self: self.env.company.currency_id.id,
+        default=lambda self: self.env.user.company_id.currency_id.id,
     )
     veg = fields.Monetary(string="VEG in currency")
     nag = fields.Char(string="N.A.G.")
