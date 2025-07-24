@@ -13,6 +13,7 @@
                 </xpath>
                 <xpath expr="//group[@name='main_dangerous_info']" position="inside">
                     <field name="special_disposition_id"/>
+                    <field name="not_subjected_to_adr"/>
                 </xpath>
             </field>
         </record>

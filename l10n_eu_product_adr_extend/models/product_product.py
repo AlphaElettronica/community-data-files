@@ -7,13 +7,14 @@ class ProductProduct(models.Model):
 
     full_class_name = fields.Char()
     special_disposition_id = fields.Many2one('product.special.dispositions')
+    not_subjected_to_adr = fields.Boolean("Non soggetta ADR")
 
     @api.onchange("is_dangerous")
     def _ochange_is_dangerous(self):
         self.is_dangerous_good = self.is_dangerous
 
     @api.onchange('is_dangerous_waste', 'un_ref', 'nag', 'label_first', 'label_second', 'label_third',
-                  'packaging_group', 'tunnel_code', 'envir_hazardous', 'special_disposition_id')
+                  'packaging_group', 'tunnel_code', 'envir_hazardous', 'special_disposition_id', 'not_subjected_to_adr')
     def onchange_get_full_class_name(self):
         fcn = self.get_full_class_name()
         self.full_class_name = fcn
@@ -55,5 +56,8 @@ class ProductProduct(models.Model):
 
         if self.special_disposition_id:
             class_name += ", {}".format(self.special_disposition_id.get_full_name())
+
+        if self.not_subjected_to_adr:
+            class_name += ", non soggetta ad ADR"
 
         return class_name
