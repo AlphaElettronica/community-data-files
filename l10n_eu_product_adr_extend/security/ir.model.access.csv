@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_product_special_dispositions_user,product_special_dispositions_user,model_product_special_dispositions,base.group_user,1,0,0,0
-access_product_special_dispositions_manager,product_special_dispositions_manager,model_product_special_dispositions,base.group_erp_manager,1,1,1,1
-
